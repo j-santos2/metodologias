@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Titulo</title>
+    </head>
+    <body>
+      <div>
+        {% if message %} <p>{{ message }}</p> {% endif %}
+      </div>
+      <div>
+        {% block content %} {% endblock %}  
+      </div>
+    </body>
+</html>
