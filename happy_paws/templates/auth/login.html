@@ -1,4 +1,42 @@
 {% extends "layout.html" %}
+{% block title %}
+<title>Happy Paws - Login</title>
+{% endblock %}
 {% block content %}
-<h1>Login</h1>
+{% if data %}
+    <p>{{ data }}</p>
+{% endif %}
+<section id="loginform", class="container page-header py-5">
+    <div class="row">
+        <form method="POST">
+            <h3 align="center" style="color: red;">Login</h3>
+            <div class="form-outline mb-4">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Enter email"
+              />
+            </div>
+            <div class="form-outline mb-4">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+              />
+            </div>
+            <div class="col">
+                <!-- Simple link -->
+                <a href="#!">Forgot password?</a>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</section>
 {% endblock %}

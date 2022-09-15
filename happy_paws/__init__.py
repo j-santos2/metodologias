@@ -3,7 +3,9 @@ from os import getenv
 
 from flask import Flask
 
-app = Flask(__name__)
+app = Flask(__name__,
+    static_url_path='', 
+    static_folder='static')
 
 def create_app():
     app.logger.setLevel(logging.INFO)
