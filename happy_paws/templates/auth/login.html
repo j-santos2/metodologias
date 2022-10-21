@@ -1,4 +1,46 @@
 {% extends "layout.html" %}
+{% block title %}
+<title>Happy Paws - Login</title>
+{% endblock %}
 {% block content %}
-<h1>Login</h1>
+<section id="loginform", class="container page-header py-5">
+    <div class="row">
+        <form method="POST">
+            <h3 align="center">Login</h3>
+            <div class="form-outline mb-4">
+              {% if error_message %} 
+                <div class="container alert alert-danger" role="alert">
+                  {{ error_message }}
+                </div>
+              {% endif %}
+            </div>
+            <div class="form-outline mb-4">
+              <label for="username">Username</label>
+              <input
+                type="username"
+                class="form-control"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+              />
+            </div>
+            <div class="form-outline mb-4">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+              />
+            </div>
+            <div class="col">
+                <!-- TODO FORGOT -->
+                <a href="#!">Forgot password?</a>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</section>
 {% endblock %}

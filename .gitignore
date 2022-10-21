@@ -7,3 +7,6 @@ instance/
 
 *.pyc
 .vscode
+
+# .db files used in dev env
+*.db
