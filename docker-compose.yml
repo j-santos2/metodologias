@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports: 
+      - "80:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DB_HOST=db
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: app_dev
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "db_prod"]
+      interval: 10s
+      timeout: 60s
+      retries: 5
+      start_period: 5s 
