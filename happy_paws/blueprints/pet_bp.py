@@ -31,3 +31,9 @@ def pet_main():
             Petxd(1, 'juan', 'boxer'),
         ]
         return render_template(f'pet/pets.html', pets=my_pets)
+
+@pet.route('/<int:_id>', methods=['GET'])
+# @login_required
+def pet_o(_id):
+    pet_data = Petxd(_id, 'juan', 'bullterrier')
+    return render_template(f'pet/pet.html', pet=pet_data)
