@@ -31,3 +31,12 @@
 .my-card-item{
     list-style-type: none;
 }
+
+.my-card{
+    min-height: 420px;
+}
+
+.my-img-card{
+    min-height: 290px;
+    object-fit: cover;
+}
