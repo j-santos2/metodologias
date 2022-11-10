@@ -40,3 +40,7 @@
     min-height: 290px;
     object-fit: cover;
 }
+
+.texto-claro{
+    color:#eee;
+}
