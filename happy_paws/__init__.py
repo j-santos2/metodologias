@@ -28,9 +28,9 @@ def create_app():
     from happy_paws.blueprints.index_bp import index
     from happy_paws.blueprints.auth_bp import auth
     from happy_paws.blueprints.pet_bp import pet
-    app.register_blueprint(index, url_prefix='/')
-    app.register_blueprint(auth, url_prefix='/')
-    app.register_blueprint(pet, url_prefix='/pet')
+    app.register_blueprint(index)
+    app.register_blueprint(auth)
+    app.register_blueprint(pet)
 
     # DB INIT
     from .models import User

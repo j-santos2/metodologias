@@ -10,12 +10,11 @@ class Petxd:
         self.name = name
         self.breed = breed
 
-pet = Blueprint('pet', __name__,
-                        template_folder='templates')
+pet = Blueprint('pet', __name__, template_folder='templates')
 
-@pet.route('/', methods=['GET', 'POST'])
-# @login_required
-def pet_main():
+@pet.route('/pet/add', methods=['GET', 'POST'])
+@login_required
+def pet_add():
     if request.method == 'POST':
         data = []
         data.append(request.form.get('name'))
@@ -24,7 +23,7 @@ def pet_main():
         new_pet = PetService.create_user(data[0], data[1], data[2])
         if new_pet is None:
             return render_template(f'pet/pets.html', error_message='Something went wrong. Please try again')    
-        return redirect(url_for('pet.pet_main'))
+        return redirect(url_for('pet.pet_add'))
     elif request.method == 'GET':
         my_pets = [
             Petxd(1, 'juan', 'bullterrier'),
@@ -32,8 +31,11 @@ def pet_main():
         ]
         return render_template(f'pet/pets.html', pets=my_pets)
 
-@pet.route('/<int:_id>', methods=['GET'])
+@pet.route('/pet', methods=['GET'])
 # @login_required
-def pet_o(_id):
-    pet_data = Petxd(_id, 'juan', 'bullterrier')
-    return render_template(f'pet/pet.html', pet=pet_data)
+def pet_main():
+    my_pets = [
+        Petxd(1, 'juan', 'bullterrier'),
+        Petxd(1, 'juan', 'boxer'),
+    ]
+    return render_template(f'pet/pets.html', pets=my_pets)
