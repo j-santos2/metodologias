@@ -28,9 +28,11 @@ def create_app():
     from happy_paws.blueprints.index_bp import index
     from happy_paws.blueprints.auth_bp import auth
     from happy_paws.blueprints.pet_bp import pet
+    from happy_paws.blueprints.appointment_bp import appointment
     app.register_blueprint(index)
     app.register_blueprint(auth)
     app.register_blueprint(pet)
+    app.register_blueprint(appointment)
 
     # DB INIT
     from .models import User

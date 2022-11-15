@@ -6,6 +6,7 @@ class Pet(db.Model):
     name = db.Column(db.String(200), nullable=False)
     breed_id = db.Column(db.Integer, db.ForeignKey('breed.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    appointments = db.relationship('Appointment', backref='name', lazy=True)
 
     def __repr__(self):
         return f'Pet({self.id}, {self.name}, {self.user_id}, {self.breed_id})'

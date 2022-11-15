@@ -55,7 +55,7 @@
 .table-curved {
     border: solid #ccc 1px;
     border-radius: 6px;
-    border-left:0px;
+    border-left: solid #ccc 1px;
 }
 
 
@@ -64,7 +64,6 @@
     border-radius: 26px;
     border-collapse: seperate;
     border-spacing: 0;
-    background:#f8f8f8;
     background-position-x: 10px;
     padding: 10px 0;
     transition: background .1s;
@@ -100,18 +99,6 @@
     top: 0;
     border-radius: 6px 0 0 6px;
     position: absolute;
-}
-.table-curved td.red:before {
-    background:red;
-}
-.table-curved td.green:before {
-    background:green;
-}
-.table-curved td.blue:before {
-    background:blue;
-}
-.table-curved td.orange:before {
-    background:orange;
 }
 .table-curved td:first-child{
     padding-left: 15px;

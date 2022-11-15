@@ -1,3 +1,4 @@
+from flask_login import login_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from ..models import User
@@ -22,5 +23,6 @@ class UserService:
         if username:
             user = User.query.filter_by(username=username).first()
             if user and check_password_hash(user.password, password):
+                login_user(user)
                 return True
         return False

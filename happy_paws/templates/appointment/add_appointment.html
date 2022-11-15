@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}
+<title>Happy Paws - Add a pet</title>
+{% endblock %}
+{% block content %}
+<section id="addpetform", class="container page-header py-5">
+    <div class="row">
+        <form method="POST">
+            <h3 align="center">Pedir un turno</h3>
+            <div class="form-outline mb-4">
+              {% if error_message %} 
+                <div class="container alert alert-danger" role="alert">
+                  {{ error_message }}
+                </div>
+              {% endif %}
+            </div>
+            <div class="form-outline mb-4">
+              <label for="text">Mascota</label>
+              <select class="form-select" name="pet_id">
+                <option value="-1">NA</option>
+                {% for pet in pets %}
+                <option value="{{ pet.id }}">{{ pet.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-outline mb-4">
+              <label for="breed">Especialista</label>
+              <select class="form-select" name="specialist">
+                <option value="-1">NA</option>
+                <option value="José">José</option>
+              </select>
+            </div>
+            <div class="form-outline mb-4">
+              <label for="breed">Servicio</label>
+              <select class="form-select" name="specialty">
+                <option value="-1">NA</option>
+                <option value="Baño">Baño</option>
+              </select>
+            </div>
+            <div class="form-outline mb-4">
+              <label for="schedule">Schedule</label>
+              <input 
+                type="datetime-local" 
+                name="schedule">
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

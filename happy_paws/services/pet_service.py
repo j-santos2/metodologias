@@ -12,6 +12,12 @@ class PetService:
         db.session.add(new_pet)
         return new_pet
     
+    def get_pets_by_user(idx=None):
+        if idx:
+            pets = Pet.query.filter_by(user_id = idx).all()
+        else:
+            pets = Pet.query.all()
+        return pets
 
 class BreedService:
     @staticmethod
