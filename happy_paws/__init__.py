@@ -16,7 +16,7 @@ def create_app():
 
     # DB CONFIG
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    if getenv('ENVIRONMENT', 'DEV'):
+    if getenv('ENVIRONMENT', 'PROD') == 'ENV':
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../test.db'
     else:
         db_host = getenv('DB_HOST')
