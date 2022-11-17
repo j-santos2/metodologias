@@ -7,6 +7,9 @@
     background-color: #f8f9fa;
 }
 
+.rounded-border{
+    border-radius: 25px;
+}
 .my-btn{
     color:#fff !important;
 }
@@ -43,6 +46,10 @@
 
 .texto-claro{
     color:#eee;
+}
+
+.navbar-btn-left{
+    display: inline !important;
 }
 
 /*  Tabla redonda */

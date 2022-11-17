@@ -4,11 +4,6 @@ from flask_login import current_user, login_required
 
 from ..services import PetService
 
-class Petxd:
-    def __init__(self, idx, name, breed):
-        self.id = idx
-        self.name = name
-        self.breed = breed
 
 pet = Blueprint('pet', __name__, template_folder='templates')
 
@@ -20,22 +15,16 @@ def pet_add():
         data.append(request.form.get('name'))
         data.append(current_user.id)
         data.append(request.form.get('breed'))
-        new_pet = PetService.create_user(data[0], data[1], data[2])
+        new_pet = PetService.create_pet(data[0], data[1], data[2])
         if new_pet is None:
-            return render_template(f'pet/pets.html', error_message='Something went wrong. Please try again')    
-        return redirect(url_for('pet.pet_add'))
+            my_pets = PetService.get_pets_by_user(idx=current_user.id)
+        return redirect(url_for('pet.pet_main'))
     elif request.method == 'GET':
-        my_pets = [
-            Petxd(1, 'juan', 'bullterrier'),
-            Petxd(1, 'juan', 'boxer'),
-        ]
-        return render_template(f'pet/pets.html', pets=my_pets)
+        my_pets = PetService.get_pets_by_user(idx=current_user.id)
+        return render_template(f'pet/add_pet.html', loggeado=current_user.is_authenticated, pets=my_pets)
 
 @pet.route('/pet', methods=['GET'])
-# @login_required
+@login_required
 def pet_main():
-    my_pets = [
-        Petxd(1, 'juan', 'bullterrier'),
-        Petxd(1, 'juan', 'boxer'),
-    ]
-    return render_template(f'pet/pets.html', pets=my_pets)
+    my_pets = PetService.get_pets_by_user(idx=current_user.id)
+    return render_template(f'pet/pets.html', loggeado=current_user.is_authenticated, pets=my_pets)
