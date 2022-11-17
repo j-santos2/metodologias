@@ -7,6 +7,9 @@
     background-color: #f8f9fa;
 }
 
+.rounded-border{
+    border-radius: 25px;
+}
 .my-btn{
     color:#fff !important;
 }
@@ -31,3 +34,87 @@
 .my-card-item{
     list-style-type: none;
 }
+
+.my-card{
+    min-height: 420px;
+}
+
+.my-img-card{
+    min-height: 290px;
+    object-fit: cover;
+}
+
+.texto-claro{
+    color:#eee;
+}
+
+.navbar-btn-left{
+    display: inline !important;
+}
+
+/*  Tabla redonda */
+
+.table-curved {
+    border-collapse: separate;
+    width:100%;
+    border-spacing:0px;
+}
+.table-curved {
+    border: solid #ccc 1px;
+    border-radius: 6px;
+    border-left: solid #ccc 1px;
+}
+
+
+.table-curved tr {
+    position: relative;
+    border-radius: 26px;
+    border-collapse: seperate;
+    border-spacing: 0;
+    background-position-x: 10px;
+    padding: 10px 0;
+    transition: background .1s;
+}
+.table-curved tr:hover {
+    background:#eee;
+}
+.table-curved th {
+    border-top: none;
+}
+.table-curved th:first-child {
+    border-radius: 6px 0 0 0;
+}
+.table-curved th:last-child {
+    border-radius: 0 6px 0 0;
+}
+.table-curved th:only-child{
+    border-radius: 6px 6px 0 0;
+}
+.table-curved tr:last-child td:first-child {
+    border-radius: 0 0 0 6px;
+}
+.table-curved tr:last-child td:last-child {
+    border-radius: 0 0 6px 0;
+}
+
+.table-curved td:first-child:before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 6px 0 0 6px;
+    position: absolute;
+}
+.table-curved td:first-child{
+    padding-left: 15px;
+}
+.table-curved td{
+    position: relative;
+    border-bottom: 10px solid white;
+    border-spacing: 0px;
+    padding: 10px;
+}
+
+/**/

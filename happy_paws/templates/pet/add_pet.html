@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
 {% block title %}
-<title>Happy Paws - Login</title>
+<title>Happy Paws - Agregar mascota</title>
 {% endblock %}
 {% block content %}
-<section id="loginform", class="container page-header py-5">
+<section id="addpetform", class="container page-header py-5">
     <div class="row bg-color rounded-border py-3">
         <form method="POST">
-            <h3 align="center">Login</h3>
+            <h3 align="center">Agregar mascota<h3>
             <div class="form-outline mb-4">
               {% if error_message %} 
                 <div class="container alert alert-danger" role="alert">
@@ -15,30 +15,30 @@
               {% endif %}
             </div>
             <div class="form-outline mb-4">
-              <label for="username">Username</label>
+              <label for="text">Nombre</label>
               <input
-                type="username"
+                type="text"
                 class="form-control"
-                id="username"
-                name="username"
-                placeholder="Enter your username"
+                id="name"
+                name="name"
+                placeholder="Nombre de la mascota"
               />
             </div>
             <div class="form-outline mb-4">
-              <label for="password">Password</label>
+              <label for="breed">Raza</label>
               <input
-                type="password"
+                type="text"
                 class="form-control"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
+                id="breed"
+                name="breed"
+                placeholder="Raza de la mascota"
               />
             </div>
-            <div class="col">
-                <a href="/register">No tenés cuenta todavia? Registrate</a>
-            </div>
             <br/>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <div class="row">
+              <div class="col-md-5"></div>
+              <button type="submit" class="col-md-2 btn btn-primary">Add</button>
+            </div>
         </form>
     </div>
 </section>

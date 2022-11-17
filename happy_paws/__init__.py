@@ -22,11 +22,17 @@ def create_app():
         db_host = getenv('DB_HOST')
         app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:pass@{db_host}:5432/app_dev'
 
+    app.config['SECRET_KEY'] = 'secreto'
+    
     # VIEWS
     from happy_paws.blueprints.index_bp import index
     from happy_paws.blueprints.auth_bp import auth
-    app.register_blueprint(index, url_prefix='/')
-    app.register_blueprint(auth, url_prefix='/')
+    from happy_paws.blueprints.pet_bp import pet
+    from happy_paws.blueprints.appointment_bp import appointment
+    app.register_blueprint(index)
+    app.register_blueprint(auth)
+    app.register_blueprint(pet)
+    app.register_blueprint(appointment)
 
     # DB INIT
     from .models import User

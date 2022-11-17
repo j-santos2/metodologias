@@ -9,6 +9,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(200), nullable=False)
     role = db.Column(db.Integer, nullable=False, default=0)
     pets = db.relationship('Pet', backref='user', lazy=True)
+    appointments = db.relationship('Appointment', backref='username', lazy=True)
     
     def __repr__(self):
         return f'User({self.id}, {self.email}, {self.username}, {self.role})'
