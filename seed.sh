@@ -8,8 +8,8 @@ flask user create user@user.com   user pass 0
 # PETS + BREEDS
 flask pet create Max 1 Bullterrier
 flask pet create Uma 2 Labrador
-flask pet create Pepe 2 Bullterrier
-flask pet create Jack 3 Salchicha
+flask pet create Olivia 2 Rottweiler
+flask pet create Pepe 3 Bullterrier
 
 # APPOINTMENTS
 # pet_id, user_id, schedule
