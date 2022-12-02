@@ -1,6 +1,8 @@
 from flask_login import login_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from .appointment_service import AppointmentService
+from .pet_service import PetService
 from ..models import User
 from .. import db
 from ..utils import commit_after
@@ -26,3 +28,11 @@ class UserService:
                 login_user(user)
                 return True
         return False
+
+    @staticmethod
+    def get_user_pets(user_id):
+        return PetService.get_pets_by_user(user_id)
+
+    @staticmethod
+    def get_user_appointments(user_id):
+        return AppointmentService.get_appointments(user_id)

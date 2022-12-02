@@ -4,7 +4,7 @@ import datetime
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import current_user, login_required
 
-from ..services import AppointmentService, PetService
+from ..services import AppointmentService, PetService, UserService
 
 class Appoinmentxd:
     def __init__(self, idx, name, breed):
@@ -36,5 +36,5 @@ def appointment_add():
 @appointment.route('/appointment', methods=['GET'])
 @login_required
 def appointment_main():
-    pets = PetService.get_pets_by_user(current_user.id)
+    pets = UserService.get_user_pets(current_user.id)
     return render_template(f'appointment/appointments.html', loggeado=current_user.is_authenticated, pets=pets)

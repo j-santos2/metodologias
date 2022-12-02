@@ -2,7 +2,7 @@ from urllib import request
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import current_user, login_required
 
-from ..services import PetService
+from ..services import PetService, UserService
 
 
 pet = Blueprint('pet', __name__, template_folder='templates')
@@ -26,5 +26,5 @@ def pet_add():
 @pet.route('/pet', methods=['GET'])
 @login_required
 def pet_main():
-    my_pets = PetService.get_pets_by_user(idx=current_user.id)
+    my_pets = UserService.get_user_pets(current_user.id)
     return render_template(f'pet/pets.html', loggeado=current_user.is_authenticated, pets=my_pets)
